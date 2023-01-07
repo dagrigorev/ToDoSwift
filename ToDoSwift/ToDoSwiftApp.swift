@@ -7,11 +7,22 @@
 
 import SwiftUI
 
+/**
+ Used MVVM architecture
+ Experimental SwiftUI App
+ */
+
 @main
 struct ToDoSwiftApp: App {
+    
+    @StateObject var listViewModel: ListViewModel = ListViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                ListView()
+            }
+            .environmentObject(listViewModel)
         }
     }
 }
